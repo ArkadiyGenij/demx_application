@@ -25,7 +25,7 @@
             <td th:text="${user.password}"></td>
             <td>
                 <a class="btn btn-primary" th:href="@{/delete-user/{id}(id=${user.id})}">Delete user</a>
-                <a class="btn btn-primary" th:href="@{/edit-user}">Edit user</a>
+                <a class="btn btn-primary" th:href="@{/edit-user/{id}(id=${user.id})}">Edit user</a>
             </td>
         </tr>
         </tbody>

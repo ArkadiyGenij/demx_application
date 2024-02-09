@@ -47,4 +47,23 @@ public class UserController {
         userService.deleteUser(id);
         return "redirect:/all";
     }
+
+    /** Метод для получения пользователя по его ID
+     * После того как получили пользователя по ID, его данные автоматически подставляются в форму
+     */
+
+    @GetMapping("/edit-user/{id}")
+    String showEditForm(@PathVariable Long id, Model model){
+        model.addAttribute("user", userService.getUserById(id));
+        return "edit-user";
+    }
+
+    /** Сохраняем изменения в БД
+     */
+
+    @PostMapping("/update-user/{id}")
+    String updateUser(@ModelAttribute User user){
+        userService.save(user);
+        return "redirect:/all";
+    }
 }

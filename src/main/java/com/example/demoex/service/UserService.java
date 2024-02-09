@@ -29,8 +29,12 @@ public class UserService {
         this.userRepo.deleteById(id);
     }
 
-    public Optional<User> getUserById(Long id){
-        return userRepo.findById(id);
+    /** Метод для получения пользователя по ID
+     * Используем лямба-выражение чтобы создать исключение в случае если пользователя в БД не окажется
+     */
+
+    public User getUserById(Long id){
+        return userRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
     }
 
     public List<User> findUserByName(String name){

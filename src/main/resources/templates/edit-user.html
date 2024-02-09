@@ -5,14 +5,14 @@
     <title>Edit user</title>
 </head>
 <body>
-<form method="post" th:action="@{/save}" th:object="${user}">
-    <label>Name: </label>
-    <input th:field="" type="text"/>
+<form method="post" th:action="@{/update-user/{id}(id=${user.id})}" th:object="${user}">
+    <label for="name">Name: </label>
+    <input th:field="*{name}" placeholder="Name" id="name" type="text"/>
     <label>Username: </label>
-    <input name="username" type="text"/>
+    <input th:field="*{username}" placeholder="Username" type="text"/>
     <label>Password: </label>
-    <input name="password" type="text"/>
-    <input type="submit" value="Save user">
+    <input th:field="*{password}" placeholder="Password" type="text"/>
+    <input type="submit" value="Edit user">
 </form>
 </body>
 </html>
