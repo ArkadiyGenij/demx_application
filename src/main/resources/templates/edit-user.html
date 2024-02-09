@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit user</title>
+</head>
+<body>
+<form method="post" th:action="@{/save}" th:object="${user}">
+    <label>Name: </label>
+    <input th:field="" type="text"/>
+    <label>Username: </label>
+    <input name="username" type="text"/>
+    <label>Password: </label>
+    <input name="password" type="text"/>
+    <input type="submit" value="Save user">
+</form>
+</body>
+</html>
